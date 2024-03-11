@@ -24,19 +24,29 @@ public class Criba
 // ¿Cuántos primos hay?
             int cuenta = contadorPrimos(dim, esPrimo);
 // Rellenar el vector de números primos
-            int[] primos = new int[cuenta];
-            for (i=0, j=0; i<dim; i++) {
-                if (esPrimo[i])
-                    primos[j++] = i;
-            }
-            return primos;
+            return rellenaPrimos(cuenta, dim, esPrimo);
         } else { // max < 2
-            return new int[0];
+            return vacío();
 // Vector vacío
         }
     }
 
-    private static int contadorPrimos(int dim, boolean[] esPrimo) {
+    public static int[] vacío() {
+        return new int[0];
+    }
+
+    public static int[] rellenaPrimos(int cuenta, int dim, boolean[] esPrimo) {
+        int j;
+        int i;
+        int[] primos = new int[cuenta];
+        for (i=0, j=0; i< dim; i++) {
+            if (esPrimo[i])
+                primos[j++] = i;
+        }
+        return primos;
+    }
+
+    public static int contadorPrimos(int dim, boolean[] esPrimo) {
         int i;
         int cuenta = 0;
         for (i=0; i< dim; i++) {
@@ -46,11 +56,11 @@ public class Criba
         return cuenta;
     }
 
-    private static void noPrimos(boolean[] esPrimo) {
+    public static void noPrimos(boolean[] esPrimo) {
         esPrimo[0] = esPrimo[1] = false;
     }
 
-    private static void iniciaArray(int dim, boolean[] esPrimo) {
+    public static void iniciaArray(int dim, boolean[] esPrimo) {
         int i;
         for (i=0; i< dim; i++)
             esPrimo[i] = true;
@@ -61,16 +71,24 @@ public class Criba
         System.out.println("Introduce el número para la criba de Erastótenes:");
         int dato=teclado.nextInt();
         int vector[]=new int[dato];
-        System.out.println("\nVector inicial hasta :"+dato);
-        for (int i = 0; i < vector.length; i++) {
-            if (i%10==0) System.out.println();
-            System.out.print(i+1+"\t");
-        }
+        vectorInicial(dato, vector);
         vector=generarPrimos(dato);
-        System.out.println("\nVector de primos hasta:"+dato);
+        vectorPrimos(dato, vector);
+    }
+
+    public static void vectorPrimos(int dato, int[] vector) {
+        System.out.println("\nVector de primos hasta:"+ dato);
         for (int i = 0; i < vector.length; i++) {
             if (i%10==0) System.out.println();
             System.out.print(vector[i]+"\t");
+        }
+    }
+
+    public static void vectorInicial(int dato, int[] vector) {
+        System.out.println("\nVector inicial hasta :"+ dato);
+        for (int i = 0; i < vector.length; i++) {
+            if (i%10==0) System.out.println();
+            System.out.print(i+1+"\t");
         }
     }
 }
