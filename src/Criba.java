@@ -36,7 +36,7 @@ public class Criba
         }
     }
 
-    private static void Criba(int dim, boolean[] esPrimo) {
+    public static void Criba(int dim, boolean[] esPrimo) {
         int i;
         int j;
         for (i=2; i<Math.sqrt(dim)+1; i++) {
