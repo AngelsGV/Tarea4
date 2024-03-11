@@ -36,6 +36,11 @@ public class Criba
         }
     }
 
+    /**
+     *
+     * @param dim es el tamaño de la array
+     * @param esPrimo el booleano indica que es primo
+     */
     public static void Criba(int dim, boolean[] esPrimo) {
         int i;
         int j;
@@ -48,10 +53,21 @@ public class Criba
         }
     }
 
+    /**
+     * Esta funcion indica que se devuelve un vector vacío cuando el tamaño de la array es menor que 2.
+     * @return en este caso crea una nueva array vacía. índice 0 (?)
+     */
     public static int[] vacío() {
         return new int[0];
     }
 
+    /**
+     *
+     * @param cuenta
+     * @param dim tamaño de la array
+     * @param esPrimo indica que el valor es primo o no
+     * @return te devuelve los primos
+     */
     public static int[] rellenaPrimos(int cuenta, int dim, boolean[] esPrimo) {
         int j;
         int i;
