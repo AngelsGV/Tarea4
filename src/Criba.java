@@ -4,6 +4,7 @@ import java.util.Scanner;
  * @version 20.0
  * @author  Angels
  * @since 11/3/24
+ * primera refaroctirazocion
  */
 public class Criba
 {
