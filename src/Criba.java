@@ -1,20 +1,8 @@
 import java.util.Scanner;
 
-/**
- * @author Angels
- * @version 3.0 --> Después de ir a tutoria
- * @since 11/3/2024
- */
 public class Criba
 {
     // Generar números primos de 1 a max
-
-    /**
-     *
-     * @param max es el parámetro que te indica el número introducido,
-     *            en el programa hay dos opciones, si supera o iguala a 2 o si es menor.
-     * @return valores que devuelve cada función.
-     */
     public static int[] generarPrimos (int max)
     {
         int i,j; //No voy a hacer un refactor name porque no interesa. Pero ya hemos visto que es fácil.
@@ -27,12 +15,7 @@ public class Criba
 // Eliminar el 0 y el 1, que no son primos
             noPrimos(esPrimo);
 // Criba
-            for (i=2; i<Math.sqrt(dim)+1; i++) {
-                if (esPrimo[i]) {
-// Eliminar los múltiplos de i
-                    sinMultiplosdei(i, dim, esPrimo);
-                }
-            }
+            Criba(dim, esPrimo);
 // ¿Cuántos primos hay?
             int cuenta = contadorPrimos(dim, esPrimo);
 // Rellenar el vector de números primos
@@ -40,6 +23,16 @@ public class Criba
         } else { // max < 2
             return vacío();
 // Vector vacío
+        }
+    }
+
+    public static void Criba(int dim, boolean[] esPrimo) {
+        int i;
+        for (i=2; i<Math.sqrt(dim)+1; i++) {
+            if (esPrimo[i]) {
+// Eliminar los múltiplos de i
+                sinMultiplosdei(i, dim, esPrimo);
+            }
         }
     }
 
