@@ -10,10 +10,9 @@ public class Criba
             int dim = max + 1; // Tamaño del array
             boolean[] esPrimo = new boolean[dim];
 // Inicializar el array
-            for (i=0; i<dim; i++)
-                esPrimo[i] = true;
+            iniciaArray(dim, esPrimo);
 // Eliminar el 0 y el 1, que no son primos
-            esPrimo[0] = esPrimo[1] = false;
+            noPrimos(esPrimo);
 // Criba
             for (i=2; i<Math.sqrt(dim)+1; i++) {
                 if (esPrimo[i]) {
@@ -23,11 +22,7 @@ public class Criba
                 }
             }
 // ¿Cuántos primos hay?
-            int cuenta = 0;
-            for (i=0; i<dim; i++) {
-                if (esPrimo[i])
-                    cuenta++;
-            }
+            int cuenta = contadorPrimos(dim, esPrimo);
 // Rellenar el vector de números primos
             int[] primos = new int[cuenta];
             for (i=0, j=0; i<dim; i++) {
@@ -40,6 +35,27 @@ public class Criba
 // Vector vacío
         }
     }
+
+    private static int contadorPrimos(int dim, boolean[] esPrimo) {
+        int i;
+        int cuenta = 0;
+        for (i=0; i< dim; i++) {
+            if (esPrimo[i])
+                cuenta++;
+        }
+        return cuenta;
+    }
+
+    private static void noPrimos(boolean[] esPrimo) {
+        esPrimo[0] = esPrimo[1] = false;
+    }
+
+    private static void iniciaArray(int dim, boolean[] esPrimo) {
+        int i;
+        for (i=0; i< dim; i++)
+            esPrimo[i] = true;
+    }
+
     public static void main(String[] args) {
         Scanner teclado=new Scanner(System.in);
         System.out.println("Introduce el número para la criba de Erastótenes:");
