@@ -1,10 +1,4 @@
 import java.util.Scanner;
-
-/**
- * @version 20.0
- * @author  Angels
- * @since 11/3/24
- */
 public class Criba
 {
     // Generar números primos de 1 a max
@@ -16,7 +10,8 @@ public class Criba
             int dim = max + 1; // Tamaño del array
             boolean[] esPrimo = new boolean[dim];
 // Inicializar el array
-            iniciaVector(dim, esPrimo);
+            for (i=0; i<dim; i++)
+                esPrimo[i] = true;
 // Eliminar el 0 y el 1, que no son primos
             esPrimo[0] = esPrimo[1] = false;
 // Criba
@@ -34,43 +29,21 @@ public class Criba
                     cuenta++;
             }
 // Rellenar el vector de números primos
-            int[] primos = rellenaVector(cuenta, dim, esPrimo);
-            return primos;
-} else { // max < 2
+            int[] primos = new int[cuenta];
+for (i=0, j=0; i<dim; i++) {
+        if (esPrimo[i])
+        primos[j++] = i;
+        }
+        return primos;
+        } else { // max < 2
         return new int[0];
 // Vector vacío
         }
         }
-
-    /**
-     *
-     * @param cuenta explicar
-
-     * @param dim dimension del vector
-     * @param esPrimo vectr de booleano
-     * @return
-     */
-    public static int[] rellenaVector(int cuenta, int dim, boolean[] esPrimo) {
-        int j;
-        int i;
-        int[] primos = new int[cuenta];
-        for (i=0, j=0; i< dim; i++) {
-                if (esPrimo[i])
-                    primos[j++] = i;
-            }
-        return primos;
-    }
-
-    public static void iniciaVector(int dim, boolean[] esPrimo) {
-        int i;
-        for (i=0; i< dim; i++)
-            esPrimo[i] = true;
-    }
-
-    public static void main(String[] args) {
+public static void main(String[] args) {
         Scanner teclado=new Scanner(System.in);
         System.out.println("Introduce el número para la criba de Erastótenes:");
-        int dato = teclado.nextInt();
+        int dato=teclado.nextInt();
         int vector[]=new int[dato];
         System.out.println("\nVector inicial hasta :"+dato);
         for (int i = 0; i < vector.length; i++) {
