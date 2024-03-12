@@ -62,11 +62,11 @@ public class Criba
     }
 
     /**
-     *
-     * @param cuenta
+     * Rellenar el vector de números primos
+     * @param cuenta el contador anterior que te decia cuantos números primos habia en esa array
      * @param dim tamaño de la array
-     * @param esPrimo indica que el valor es primo o no
-     * @return te devuelve los primos
+     * @param esPrimo indica que el valor es primo
+     * @return te devuelve los primos ya rellenados
      */
     public static int[] rellenaPrimos(int cuenta, int dim, boolean[] esPrimo) {
         int j;
@@ -80,10 +80,12 @@ public class Criba
     }
 
     /**
+     * ¿Cuántos primos hay? Contador de números primos.
+     * @param dim dimensión de la array
+     * @param esPrimo te muestra si es primo
+     * @return te devuelve el contador de números primos, el cual recorre toda la matriz y
+     * va sumando 1 si es primo.
      *
-     * @param dim
-     * @param esPrimo
-     * @return
      */
     public static int contadorPrimos(int dim, boolean[] esPrimo) {
         int i;
@@ -96,7 +98,7 @@ public class Criba
     }
 
     /**
-     *
+     * Eliminar el 0 y el 1, que no son primos
      * @param esPrimo
      */
     public static void noPrimos(boolean[] esPrimo) {
@@ -104,9 +106,9 @@ public class Criba
     }
 
     /**
-     *
-     * @param dim
-     * @param esPrimo
+     * Inicializar el array
+     * @param dim dimensión de la array
+     * @param esPrimo te marca que es primo
      */
     public static void iniciaArray(int dim, boolean[] esPrimo) {
         int i;
@@ -115,7 +117,7 @@ public class Criba
     }
 
     /**
-     *
+     * Se introduce el número que quieras y te genera un vector
      * @param args
      */
     public static void main(String[] args) {
@@ -129,9 +131,9 @@ public class Criba
     }
 
     /**
-     *
-     * @param dato
-     * @param vector
+     * Del vector creado en la función main te escoge los primos y te los muestra,
+     * @param dato cada dato de la array
+     * @param vector la array creada
      */
     public static void vectorPrimos(int dato, int[] vector) {
         System.out.println("\nVector de primos hasta:"+ dato);
@@ -143,8 +145,8 @@ public class Criba
 
     /**
      *
-     * @param dato
-     * @param vector
+     * @param dato dato de la array
+     * @param vector vector inicial
      */
     public static void vectorInicial(int dato, int[] vector) {
         System.out.println("\nVector inicial hasta :"+ dato);
