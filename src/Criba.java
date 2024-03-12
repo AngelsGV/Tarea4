@@ -79,6 +79,12 @@ public class Criba
         return primos;
     }
 
+    /**
+     *
+     * @param dim
+     * @param esPrimo
+     * @return
+     */
     public static int contadorPrimos(int dim, boolean[] esPrimo) {
         int i;
         int cuenta = 0;
@@ -89,16 +95,29 @@ public class Criba
         return cuenta;
     }
 
+    /**
+     *
+     * @param esPrimo
+     */
     public static void noPrimos(boolean[] esPrimo) {
         esPrimo[0] = esPrimo[1] = false;
     }
 
+    /**
+     *
+     * @param dim
+     * @param esPrimo
+     */
     public static void iniciaArray(int dim, boolean[] esPrimo) {
         int i;
         for (i=0; i< dim; i++)
             esPrimo[i] = true;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner teclado=new Scanner(System.in);
         System.out.println("Introduce el número para la criba de Erastótenes:");
@@ -109,6 +128,11 @@ public class Criba
         vectorPrimos(dato, vector);
     }
 
+    /**
+     *
+     * @param dato
+     * @param vector
+     */
     public static void vectorPrimos(int dato, int[] vector) {
         System.out.println("\nVector de primos hasta:"+ dato);
         for (int i = 0; i < vector.length; i++) {
@@ -117,6 +141,11 @@ public class Criba
         }
     }
 
+    /**
+     *
+     * @param dato
+     * @param vector
+     */
     public static void vectorInicial(int dato, int[] vector) {
         System.out.println("\nVector inicial hasta :"+ dato);
         for (int i = 0; i < vector.length; i++) {
